@@ -161,6 +161,7 @@ ul {
     background-color: var(--color-button-hover);
 }
 
+/* Snackbar */
 #snackbar {
     visibility: hidden;
     min-width: 250px;
@@ -202,3 +203,5 @@ ul {
     from {top: 30px; opacity: 1;}
     to {top: 0; opacity: 0;}
   }
+
+  

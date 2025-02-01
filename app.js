@@ -2,16 +2,17 @@
 let amigos = [];
 
 const agregarAmigo = () => {
-  let nombre = document.getElementById("amigo").value;
-  if (nombre == "") {
-    // alert('Debe ingresar un nombre');
+  let nombre = document.getElementById("amigo");
+  if (nombre.value === "") {
+    nombre.focus();
     snackbar("Debe ingresar un nombre");
     return;
   }
-  amigos.push(nombre);
+  amigos.push(nombre.value);
   mostrarAmigos();
   document.getElementById("amigo").value = "";
-  console.log(nombre);
+  nombre.focus();
+  console.log(nombre.value);
 };
 
 const mostrarAmigos = () => {
@@ -23,6 +24,10 @@ const mostrarAmigos = () => {
 };
 
 const sortearAmigo = () => {
+    if (amigos.length < 2) {
+        snackbar("Debe ingresar al menos dos amigos");
+        return;
+    }
   let amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
   document.getElementById("resultado").innerHTML = amigoSorteado;
 };
@@ -35,3 +40,5 @@ const snackbar = (mensaje) => {
     snackbarElement.className = snackbarElement.className.replace("show", "");
   }, 3000);
 };
+
+ 
